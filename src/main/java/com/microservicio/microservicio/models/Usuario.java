@@ -1,4 +1,4 @@
-package models;
+package com.microservicio.microservicio.models;
 
 public class Usuario {
 

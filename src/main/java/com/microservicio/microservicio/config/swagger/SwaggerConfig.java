@@ -1,4 +1,4 @@
-package config.swagger;
+package com.microservicio.microservicio.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
