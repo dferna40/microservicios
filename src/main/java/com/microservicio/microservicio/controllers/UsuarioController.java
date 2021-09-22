@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservicio.microservicio.dao.IUsuarioDao;
@@ -16,7 +17,7 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioDao usuarioDao;
 
-	@RequestMapping(value = "usuario/{id}")
+	@RequestMapping(value = "api/usuarios/{id}")
 	public Usuario getUsuario(@PathVariable Long id) {
 		Usuario usuario = new Usuario();
 		
@@ -30,7 +31,7 @@ public class UsuarioController {
 		return usuario;
 	}
 	
-	@RequestMapping(value = "usuarios")
+	@RequestMapping(value = "api/usuarios")
 	public List<Usuario> getUsuarios() {
 		return usuarioDao.getUsuarios();
 	}
@@ -46,15 +47,9 @@ public class UsuarioController {
 		return usuario;
 	}
 	
-	@RequestMapping(value = "eliminarUsuario")
-	public Usuario eliminarUsuario() {
-		Usuario usuario = new Usuario();
-//		usuario.setNombre("David");
-//		usuario.setApellido("Fernandez");
-//		usuario.setEmail("dferna40@gmail.com");
-//		usuario.setTelefono("675430271");
-//		usuario.setPassword("pass");
-		return usuario;
+	@RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.DELETE)
+	public void eliminarUsuario(@PathVariable Long id) {
+		usuarioDao.eliminarUsuario(id);
 	}
 	
 	
