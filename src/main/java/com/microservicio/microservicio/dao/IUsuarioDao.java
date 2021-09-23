@@ -9,5 +9,7 @@ public interface IUsuarioDao {
 	List<Usuario> getUsuarios();
 
 	void eliminarUsuario(Long id);
+
+	void registrar(Usuario usuario);
 	
 }
